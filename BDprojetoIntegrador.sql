@@ -34,7 +34,7 @@ create table Avaliacao(
   c_nomeDisci VARCHAR(100),
   n_notaAvalia int,
   c_comentario text,
-  foreign key(n_nomeDisci));
+  foreign key(n_nomeDisci) REFERENCES Disciplina(n_nomeDisci));
   
 -- desc comprodu;
 delimiter //

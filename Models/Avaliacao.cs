@@ -5,8 +5,11 @@ namespace ProjetoIntegradorFinal.Models
 {
     public partial class Avaliacao
     {
-        public string CNomeDisci { get; set; } = null!;
-        public string? CMsg { get; set; }
-        public int? INota { get; set; }
+        public int IdAvaliacao { get; set; }
+        public int? NCodDisci { get; set; }
+        public int? NNotaAvalia { get; set; }
+        public string? CComentario { get; set; }
+
+        public virtual Disciplina? NCodDisciNavigation { get; set; }
     }
 }

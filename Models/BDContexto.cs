@@ -63,19 +63,29 @@ namespace ProjetoIntegradorFinal.Models
 
             modelBuilder.Entity<Avaliacao>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.IdAvaliacao)
+                    .HasName("PRIMARY");
 
                 entity.ToTable("avaliacao");
 
-                entity.Property(e => e.CMsg)
-                    .HasColumnType("mediumtext")
-                    .HasColumnName("c_msg");
+                entity.HasIndex(e => e.NCodDisci, "n_codDisci");
 
-                entity.Property(e => e.CNomeDisci)
-                    .HasMaxLength(100)
-                    .HasColumnName("c_nomeDisci");
+                entity.Property(e => e.IdAvaliacao)
+                    .ValueGeneratedNever()
+                    .HasColumnName("idAvaliacao");
 
-                entity.Property(e => e.INota).HasColumnName("i_nota");
+                entity.Property(e => e.CComentario)
+                    .HasColumnType("text")
+                    .HasColumnName("c_comentario");
+
+                entity.Property(e => e.NCodDisci).HasColumnName("n_codDisci");
+
+                entity.Property(e => e.NNotaAvalia).HasColumnName("n_notaAvalia");
+
+                entity.HasOne(d => d.NCodDisciNavigation)
+                    .WithMany(p => p.Avaliacaos)
+                    .HasForeignKey(d => d.NCodDisci)
+                    .HasConstraintName("avaliacao_ibfk_1");
             });
 
             modelBuilder.Entity<Colaborador>(entity =>

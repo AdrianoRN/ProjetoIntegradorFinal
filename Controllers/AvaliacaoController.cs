@@ -23,7 +23,7 @@ namespace ProjetoIntegradorFinal.Controllers
         [HttpGet]
         public List <string> ListarAvaliacao()
         {   
-            var consultaAvaliacao = (from Avaliacao in contexto.Avaliacaos select Avaliacao.CNomeDisci).Distinct().ToList();
+            var consultaAvaliacao = (from Avaliacao in contexto.Avaliacaos select Avaliacao.CComentario ).Distinct().ToList();
 
             return consultaAvaliacao;
         }

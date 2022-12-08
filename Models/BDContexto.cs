@@ -70,9 +70,7 @@ namespace ProjetoIntegradorFinal.Models
 
                 entity.HasIndex(e => e.NCodDisci, "n_codDisci");
 
-                entity.Property(e => e.IdAvaliacao)
-                    .ValueGeneratedNever()
-                    .HasColumnName("idAvaliacao");
+                entity.Property(e => e.IdAvaliacao).HasColumnName("idAvaliacao");
 
                 entity.Property(e => e.CComentario)
                     .HasColumnType("text")

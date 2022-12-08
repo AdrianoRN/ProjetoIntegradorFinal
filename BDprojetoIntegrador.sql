@@ -31,13 +31,10 @@ create table Disciplina(
   
 -- desc comvende;
 create table Avaliacao(
-  n_codDisci int not null,
-  n_idAvalia int not null auto_increment,
+  c_nomeDisci VARCHAR(100),
   n_notaAvalia int,
-  d_dataAvalia date,
   c_comentario text,
-  primary key ( n_idAvalia ),
-  foreign key(n_codDisci))
+  foreign key(n_nomeDisci));
   
 -- desc comprodu;
 delimiter //

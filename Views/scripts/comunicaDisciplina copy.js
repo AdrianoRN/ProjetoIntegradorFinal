@@ -1,5 +1,9 @@
+$(document).ready(function() {
+    ListarDisciplina();
+});
+
 function ListarDisciplina(){
-    $.get('https://localhost:5001/Disciplina/Listar')
+    $.get('https://localhost:5001/Disciplina/ListarDisciplina')
         .done(function(resposta) { 
             for(i = 0; i < resposta.length; i++) {
                 $('#DisciplinaSelect').append($('<option></option>').val(i+1).html(resposta[i]));

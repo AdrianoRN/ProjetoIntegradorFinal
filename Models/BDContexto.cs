@@ -17,6 +17,7 @@ namespace ProjetoIntegradorFinal.Models
         }
 
         public virtual DbSet<Aluno> Alunos { get; set; } = null!;
+        public virtual DbSet<Avaliacao> Avaliacaos { get; set; } = null!;
         public virtual DbSet<Colaborador> Colaboradors { get; set; } = null!;
         public virtual DbSet<Disciplina> Disciplinas { get; set; } = null!;
 
@@ -58,6 +59,23 @@ namespace ProjetoIntegradorFinal.Models
                     .HasColumnName("c_nomeAluno");
 
                 entity.Property(e => e.DDataNasc).HasColumnName("d_dataNasc");
+            });
+
+            modelBuilder.Entity<Avaliacao>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("avaliacao");
+
+                entity.Property(e => e.CMsg)
+                    .HasColumnType("mediumtext")
+                    .HasColumnName("c_msg");
+
+                entity.Property(e => e.CNomeDisci)
+                    .HasMaxLength(100)
+                    .HasColumnName("c_nomeDisci");
+
+                entity.Property(e => e.INota).HasColumnName("i_nota");
             });
 
             modelBuilder.Entity<Colaborador>(entity =>
